@@ -8,7 +8,7 @@
 * KakaoSDK 2.0는 [`DynamicCodable`](https://github.com/levantAJ/AnyCodable), `Alamofire`를 의존성으로 가집니다. `DynamicCodable` 이 SwiftPM을 지원하지 않아, 코드를 이 저장소에 내장하여 사용하도록 하였습니다. 
 * KakaoSDK 2.0 일부 소스에서 `import UIKit` 코드가 없어 빌드가 되지 않아, 필요한 곳에는 `import UIKit` 코드를 추가하였습니다.
 * KakaoSDK 2.0 SwiftPM 라이선스는 cocoapods에 올라가 있는 KakaoSDK 2.0 spec에 정의된 MIT 라이선스를 따릅니다.
-  * [KakaoSDK](https://github.com/CocoaPods/Specs/blob/0f3c2bb5772d6103995122cf24d8af43b0b14ca5/Specs/a/0/c/KakaoSDK/2.0.1/KakaoSDK.podspec.json)
+  * [KakaoSDK](https://github.com/CocoaPods/Specs/blob/771366b7e9e86271509c107021f766d95d5fb15b/Specs/a/0/c/KakaoSDK/2.2.0/KakaoSDK.podspec.json)
   * [KakaoSDKCommon](https://github.com/CocoaPods/Specs/blob/771366b7e9e86271509c107021f766d95d5fb15b/Specs/a/d/6/KakaoSDKCommon/2.2.0/KakaoSDKCommon.podspec.json)
   * [KakaoSDKAuth](https://github.com/CocoaPods/Specs/blob/771366b7e9e86271509c107021f766d95d5fb15b/Specs/a/6/c/KakaoSDKAuth/2.2.0/KakaoSDKAuth.podspec.json)
   * [KakaoSDKTemplate](https://github.com/CocoaPods/Specs/blob/771366b7e9e86271509c107021f766d95d5fb15b/Specs/6/d/3/KakaoSDKTemplate/2.2.0/KakaoSDKTemplate.podspec.json)
