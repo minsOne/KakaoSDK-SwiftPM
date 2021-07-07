@@ -42,40 +42,36 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: Dependency.dynamicCodable.name,
-            dependencies: [],
-            path: Dependency.dynamicCodable.path),
-        .target(
             name: KakaoSDK.common.name,
-            dependencies: [.alamofire, .dynamicCodable],
+            dependencies: [.alamofire],
             path: KakaoSDK.common.path),
         .target(
             name: KakaoSDK.auth.name,
-            dependencies: [.alamofire, .dynamicCodable, .kakaoSDKcommon],
+            dependencies: [.alamofire, .kakaoSDKCommon],
             path: KakaoSDK.auth.path),
         .target(
             name: KakaoSDK.template.name,
-            dependencies: [.kakaoSDKcommon],
+            dependencies: [.kakaoSDKCommon],
             path: KakaoSDK.template.path),
         .target(
             name: KakaoSDK.link.name,
-            dependencies: [.kakaoSDKcommon, .kakaoSDKTemplate],
+            dependencies: [.kakaoSDKCommon, .kakaoSDKTemplate],
             path: KakaoSDK.link.path),
         .target(
             name: KakaoSDK.user.name,
-            dependencies: [.kakaoSDKcommon, .kakaoSDKAuth],
+            dependencies: [.kakaoSDKCommon, .kakaoSDKAuth],
             path: KakaoSDK.user.path),
         .target(
             name: KakaoSDK.talk.name,
-            dependencies: [.kakaoSDKcommon, .kakaoSDKAuth, .kakaoSDKTemplate],
+            dependencies: [.kakaoSDKCommon, .kakaoSDKAuth, .kakaoSDKTemplate],
             path: KakaoSDK.talk.path),
         .target(
             name: KakaoSDK.story.name,
-            dependencies: [.kakaoSDKcommon, .kakaoSDKAuth],
+            dependencies: [.kakaoSDKCommon, .kakaoSDKAuth],
             path: KakaoSDK.story.path),
         .target(
             name: KakaoSDK.navi.name,
-            dependencies: [.kakaoSDKcommon, .kakaoSDKAuth],
+            dependencies: [.kakaoSDKCommon, .kakaoSDKAuth],
             path: KakaoSDK.navi.path),
     ]
 )
@@ -98,22 +94,10 @@ enum KakaoSDK: String {
     var dependency: Target.Dependency { .init(stringLiteral: name) }
 }
 
-enum Dependency: String {
-    case alamofire = "Alamofire"
-    case dynamicCodable = "DynamicCodable"
-
-    var name: String { return rawValue }
-    var dependency: Target.Dependency { .init(stringLiteral: name) }
-    var path: String? {
-        if case .dynamicCodable = self { return "Package/DynamicCodable/Sources" }
-        return nil
-    }
-}
-
 extension Target.Dependency {
-    static var kakaoSDKcommon: Self { Target.Dependency(stringLiteral: KakaoSDK.common.name) }
+    static var kakaoSDKCommon: Self { Target.Dependency(stringLiteral: KakaoSDK.common.name) }
     static var kakaoSDKAuth: Self { Target.Dependency(stringLiteral: KakaoSDK.auth.name) }
     static var kakaoSDKTemplate: Self { Target.Dependency(stringLiteral: KakaoSDK.template.name) }
-    static var alamofire: Self { Target.Dependency(stringLiteral: Dependency.alamofire.name) }
-    static var dynamicCodable: Self { Target.Dependency(stringLiteral: Dependency.dynamicCodable.name) }
+    static var alamofire: Self { "Alamofire" }
 }
+
